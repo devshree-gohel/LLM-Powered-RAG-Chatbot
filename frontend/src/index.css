@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --vera-bg: #080914;
+    --vera-surface: rgba(16, 18, 36, 0.75);
+    --vera-sidebar: #0b0c1e;
+    --vera-accent: #a855f7;
+    --vera-accent-sec: #c084fc;
+    --vera-glow: rgba(168, 85, 247, 0.35);
+    --vera-text: #f1f5f9;
+    --vera-text-muted: #94a3b8;
+    --vera-border: rgba(168, 85, 247, 0.2);
+    --vera-input: rgba(14, 16, 32, 0.85);
+  }
+
+  body {
+    background-color: var(--vera-bg);
+    color: var(--vera-text);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.light-mode {
+    color: #0f172a;
+  }
+}
+
+/* Procedural Background: Dreamy Lumina Orb (Soft Pastel Pearlescent) */
+.bg-style-lumina-orb {
+  background-color: #f5f6fb;
+  background-image: 
+    radial-gradient(ellipse 70% 60% at 50% 28%, rgba(244, 63, 94, 0.12) 0%, rgba(168, 85, 247, 0.08) 40%, rgba(99, 102, 241, 0.04) 70%, transparent 100%),
+    radial-gradient(circle at 15% 15%, rgba(244, 63, 94, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 45%);
+}
+
+/* Procedural Background: Celestial Default */
+.bg-style-celestial-orb {
+  background-image: 
+    radial-gradient(ellipse 65% 55% at 50% 32%, var(--vera-glow) 0%, rgba(30, 20, 60, 0.15) 45%, transparent 80%),
+    radial-gradient(circle at 15% 15%, var(--vera-glow) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, var(--vera-accent-sec) 0%, transparent 40%);
+}
+
+/* Procedural Background: Starfield */
+.bg-style-starfield {
+  background-image: 
+    radial-gradient(1px 1px at 25px 35px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 70px 120px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 150px 80px, #e2e8f0, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 220px 200px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+    radial-gradient(ellipse 60% 50% at 50% 50%, var(--vera-glow) 0%, transparent 75%);
+  background-size: 300px 300px, 400px 400px, 250px 250px, 350px 350px, 100% 100%;
+}
+
+/* Procedural Background: Cyber Matrix Grid */
+.bg-style-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 50% 35%, var(--vera-glow) 0%, transparent 70%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+}
+
+/* Procedural Background: Fluid Aurora Mesh */
+.bg-style-aurora-mesh {
+  background-image: 
+    radial-gradient(circle at 20% 20%, var(--vera-glow) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, var(--vera-accent-sec) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, var(--vera-glow) 0%, transparent 50%);
+  filter: contrast(110%);
+}
+
+/* Procedural Background: Minimal Glass */
+.bg-style-minimal-glass {
+  background-image: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Frosted Card Surface */
+.vera-card {
+  background: var(--vera-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vera-card:hover {
+  border-color: var(--vera-accent);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.7), 0 0 15px -3px var(--vera-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Glowing Floating Input Capsule */
+.vera-input-capsule {
+  background: var(--vera-input);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--vera-border);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.85), 0 0 30px -5px var(--vera-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 3D Orb Pulsing Animation */
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-orb-float {
+  animation: orbFloat 5s ease-in-out infinite;
+}
+
+/* Star Sparkles */
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-twinkle {
+  animation: sparkleTwinkle 3s ease-in-out infinite;
+}
+
+/* Light Mode Overrides */
+body.light-mode .vera-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 10px 30px -4px rgba(124, 58, 237, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+  color: #0f172a;
+}
+
+body.light-mode .vera-card:hover {
+  border-color: rgba(124, 58, 237, 0.35);
+  box-shadow: 0 14px 35px -4px rgba(124, 58, 237, 0.15), 0 0 20px -3px rgba(244, 63, 94, 0.15);
+}
+
+body.light-mode .vera-input-capsule {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  box-shadow: 0 16px 40px -8px rgba(124, 58, 237, 0.12), 0 0 25px -4px rgba(244, 63, 94, 0.1);
+  color: #0f172a;
+}
+
+body.light-mode .bg-\[\#121428\] {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .bg-\[\#101224\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+body.light-mode .bg-\[\#121427\]\/80,
+body.light-mode .bg-\[\#121427\]\/70,
+body.light-mode .bg-\[\#121427\]\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body.light-mode .bg-\[\#181a33\] {
+  background-color: #f1f3f9 !important;
+  color: #334155 !important;
+}
+
+body.light-mode .text-slate-100,
+body.light-mode .text-slate-200 {
+  color: #0f172a !important;
+}
+
+body.light-mode .text-slate-300,
+body.light-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+body.light-mode ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vera-accent);
+}
